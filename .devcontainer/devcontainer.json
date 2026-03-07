@@ -4,4 +4,5 @@
   "service": "app",
   "workspaceFolder": "/workspaces/it_dev",
   "postCreateCommand": "CI=true pnpm install && npx playwright install chromium"
+  
 }

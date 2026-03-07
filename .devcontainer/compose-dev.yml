@@ -8,3 +8,4 @@ services:
     stdin_open: true
     volumes:
       - ..:/workspaces/it_dev:cached
+      - ../.claude:/home/vscode/.claude

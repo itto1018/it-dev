@@ -1,11 +1,14 @@
 {
   "permissions": {
     "deny": [
-      "Bash(git commit:*)",
       "Bash(git push:*)",
       "Bash(rm:*)",
       "Bash(sudo:*)",
       "Read(.env.*)"
+    ],
+    "allow": [
+      "Bash(pnpm test)",
+      "Bash(gh pr view:*)"
     ]
   },
   "mcpServers": {

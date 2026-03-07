@@ -1,0 +1,10 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: it_dev:latest
+    tty: true
+    stdin_open: true
+    volumes:
+      - ..:/workspaces/it_dev:cached

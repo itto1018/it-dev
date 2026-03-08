@@ -1,7 +1,7 @@
 {
   "name": "it_dev",
   "dockerComposeFile": "compose-dev.yml",
-  "service": "app",
+  "service": "it-dev",
   "workspaceFolder": "/workspaces/it_dev",
   "postCreateCommand": "CI=true pnpm install && npx playwright install chromium"
   

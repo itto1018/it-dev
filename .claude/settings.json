@@ -13,8 +13,16 @@
   },
   "mcpServers": {
     "playwright": {
+      "type": "stdio",
       "command": "npx",
-      "args": ["@playwright/mcp@latest", "--headless"]
+      "args": [
+        "@playwright/mcp@latest",
+        "--headless",
+        "--isolated",
+        "--browser",
+        "chromium",
+        "--no-sandbox"
+      ]
     }
   }
 }

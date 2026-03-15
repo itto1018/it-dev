@@ -1,0 +1,59 @@
+services:
+  # 1. Next.js 開発サーバー
+  app:
+    build:
+      context: .
+      dockerfile: ./.docker/Dockerfile.app
+    volumes:
+      - .:/app
+    working_dir: /app
+    ports:
+      - "3000:3000"
+    command: pnpm dev
+    networks:
+      - it-dev
+
+  # 2. MCP サーバー (Playwright)
+  mcp-playwright:
+    build:
+      context: .
+      dockerfile: ./.docker/Dockerfile.mcp-playwright
+    volumes:
+      - .:/app
+    working_dir: /app
+    ports:
+      - "3001:3001"
+    command: playwright-mcp --headless --isolated --browser chromium --no-sandbox
+    depends_on:
+      - app
+    networks:
+      - it-dev
+
+  # 3. Claude Code
+  claude-code:
+    build:
+      context: .
+      dockerfile: ./.docker/Dockerfile.claude
+    env_file:
+      - .env
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - MCP_SERVER_URL=http://mcp-playwright:3001/mcp
+    volumes:
+      - .:/app
+      - .:/app/.captures
+      - claude-config:/root/.config
+    working_dir: /app
+    stdin_open: true
+    tty: true
+    depends_on:
+      - mcp-playwright
+    networks:
+      - it-dev
+
+networks:
+  it-dev:
+    driver: bridge
+
+volumes:
+  claude-config:

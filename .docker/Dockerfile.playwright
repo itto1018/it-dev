@@ -1,0 +1,13 @@
+FROM mcr.microsoft.com/playwright:v1.58.2-noble
+
+# Set the working directory
+WORKDIR /app
+
+# # Install Playwright system dependencies for headless Chromium
+RUN npx playwright install --with-deps chromium
+
+# Expose the port the app runs on
+EXPOSE 8931
+
+# Start the MCP server
+CMD ["npx", "-y", "@playwright/mcp", "--headless", "--isolated", "--browser", "chromium", "--no-sandbox", "--port", "8931"]

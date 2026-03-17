@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "playwright": {
+      "command": "docker",
+      "args": [
+        "exec",
+        "-i",
+        "playwright-mcp-server",
+        "node",
+        "/root/.npm/_npx/e41f203b7505f1fb/node_modules/.bin/playwright",
+        "--browser",
+        "chromium",
+        "--isolated",
+        "--no-sandbox"
+      ]
+    }
+  }
+}

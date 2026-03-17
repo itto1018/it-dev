@@ -1,4 +1,9 @@
 # サーバ
+1つのコンテナで1つの役割を担う構成にすることで、コンテナ同士の依存関係を明確にし、管理しやすくしています。
+
+- app: Next.js 開発サーバーをホストし、コードのホットリロードを提供します
+- claude_code: Claude Code コンテナで、MCP プロトコルを介して Playwright MCP サーバーと通信し、テストの実行やブラウザ操作を指示します
+- playwright_mcp: Playwright MCP サーバーをホストし、E2E テストの実行を担当します
 
 ```mermaid
 graph TD

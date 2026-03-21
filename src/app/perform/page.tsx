@@ -1,4 +1,4 @@
-const works = [
+const perform = [
   {
     id: 1,
     title: 'ポートフォリオサイト',
@@ -75,12 +75,12 @@ const categoryColors: Record<string, string> = {
   'CLI ツール': 'bg-orange-100 text-orange-700',
 }
 
-export default function WorksPage() {
+export default function performPage() {
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
       <div className="mb-14">
         <h1 className="text-3xl md:text-4xl font-extrabold mb-2">
-          Works <span className="text-[#a3e635]">/</span> 実績
+          Perform <span className="text-[#a3e635]">/</span> 実績
         </h1>
         <div className="w-12 h-1 bg-[#a3e635] rounded" />
         <p className="text-gray-500 mt-4">
@@ -89,7 +89,7 @@ export default function WorksPage() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {works.map((work) => (
+        {perform.map((work) => (
           <article
             key={work.id}
             className="bg-white border border-gray-100 rounded-xl p-6 shadow-sm hover:shadow-md hover:border-[#a3e635]/40 transition-all flex flex-col"

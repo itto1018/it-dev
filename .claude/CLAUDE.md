@@ -1,14 +1,4 @@
 # it_dev Project
-
-## Overview
-Vite + React + TypeScript project.
-
-## Tech Stack
-- React 19
-- TypeScript 5.9
-- Vite 7
-- ESLint (typescript-eslint)
-
 ## Package Manager
 pnpm
 
@@ -24,3 +14,8 @@ pnpm
 - 型定義: `src/types/microcms.ts`
 - 環境変数: `.env.local`（`VITE_MICROCMS_SERVICE_DOMAIN`, `VITE_MICROCMS_API_KEY`）
 - コンテンツ型は `src/types/microcms.ts` に追加していく
+
+## CLAUDE
+- スキル: skillsディレクトリに配置
+- ルール: rulesディレクトリに配置
+- 応答: 常に日本語で応答すること

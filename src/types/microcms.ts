@@ -2,15 +2,16 @@ import type { MicroCMSDate, MicroCMSImage } from 'microcms-js-sdk'
 
 // microCMS の共通フィールド
 export type MicroCMSBase = MicroCMSDate & {
-  id: string
+  createdAt: string
+  updatedAt: string
+  publishedAt: string
+  revisedAt: string
 }
 
-// 画像フィールドの再エクスポート
-export type { MicroCMSImage }
-
-// コンテンツ型の例（APIに合わせて修正してください）
-export type Article = MicroCMSBase & {
-  title: string
-  body: string
-  thumbnail?: MicroCMSImage
+// about
+export type AboutType = MicroCMSBase & {
+  name: string
+  position: string
+  image?: MicroCMSImage
+  description: string
 }

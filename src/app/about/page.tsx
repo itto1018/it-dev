@@ -1,31 +1,9 @@
-const skills = [
-  { name: 'TypeScript', level: 90 },
-  { name: 'React / Next.js', level: 88 },
-  { name: 'Tailwind CSS', level: 85 },
-  { name: 'Node.js', level: 70 },
-  { name: 'microCMS', level: 75 },
-  { name: 'Git / GitHub', level: 85 },
-]
+import { career, skills, getProfileData } from '@/app/data/about'
+import parse from 'html-react-parser'
 
-const career = [
-  {
-    year: '2024 〜',
-    role: 'フリーランス フロントエンドエンジニア',
-    desc: 'Next.js / React を中心とした Web アプリ・LP・CMS 連携案件に従事。',
-  },
-  {
-    year: '2022 〜 2024',
-    role: 'Web 開発会社 フロントエンドエンジニア',
-    desc: 'SPA / SSR の設計・実装、デザインシステムの導入を担当。',
-  },
-  {
-    year: '2020 〜 2022',
-    role: 'IT 企業 Web エンジニア（新卒入社）',
-    desc: 'HTML / CSS / JavaScript によるコーポレートサイト構築・保守。',
-  },
-]
-
-export default function AboutPage() {
+export default async function AboutPage() {
+  const profile_data = await getProfileData()
+  
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-16">
       {/* Page title */}
@@ -38,22 +16,19 @@ export default function AboutPage() {
 
       {/* Self intro */}
       <section className="mb-14 flex flex-col md:flex-row gap-10 items-start">
-        <div className="flex-shrink-0">
+        <div className="shrink-0">
           <div className="w-28 h-28 rounded-full bg-[#a3e635]/20 flex items-center justify-center text-5xl select-none">
             👤
           </div>
         </div>
         <div>
-          <h2 className="text-xl font-bold mb-3">自己紹介</h2>
-          <p className="text-gray-600 leading-relaxed mb-4">
-            フロントエンドエンジニアとして Web サービスの設計・開発に携わっています。
-            React / Next.js を中心に、パフォーマンスとユーザー体験を意識した実装を得意としています。
+          <h2 className="text-xl font-bold mb-3">Profile</h2>
+          <p className='text-black leading-relaxed mb-4'>
+            {profile_data.name} / {profile_data.position}
           </p>
-          <p className="text-gray-600 leading-relaxed">
-            個人ではヘッドレス CMS を活用したブログ・ポートフォリオの構築や
-            オープンソースへの貢献も行っています。新しい技術のキャッチアップが好きで、
-            学習した内容をブログで発信しています。
-          </p>
+          <div className="text-gray-600 leading-relaxed mb-4">
+            {parse(profile_data.description)}
+          </div>
         </div>
       </section>
 

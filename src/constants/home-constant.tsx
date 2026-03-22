@@ -1,5 +1,3 @@
-import { title } from "process"
-
 const hero = {
   position: 'Data Engineer',
   title: (

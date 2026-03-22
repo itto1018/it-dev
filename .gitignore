@@ -28,10 +28,8 @@ dist-ssr
 *.sln
 *.sw?
 
-# Claude
-.claude/
-!.claude/CLAUDE.md
-!.claude/settings.json
+# dotfiles
+.dotfiles/*
 
 # Captures
 .captures/*

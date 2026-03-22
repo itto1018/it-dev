@@ -7,9 +7,9 @@
         "-i",
         "playwright-mcp-server",
         "node",
-        "/root/.npm/_npx/e41f203b7505f1fb/node_modules/.bin/playwright",
+        "/root/.npm/_npx/e41f203b7505f1fb/node_modules/.bin/playwright-mcp-server",
         "--browser",
-        "chromium",
+        "firefox",
         "--isolated",
         "--no-sandbox"
       ]

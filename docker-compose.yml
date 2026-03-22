@@ -15,34 +15,38 @@ services:
 
   # 2. PlaywrightMCP サーバー
   playwright_mcp:
-    build:
-      context: .
-      dockerfile: ./.docker/Dockerfile.playwright
-    environment:
-    - WEB_SERVER_URL=http://app:3000
-    volumes:
-      - .:/app
-    working_dir: /app
-    stdin_open: true
-    tty: true
+    image: mcr.microsoft.com/playwright:v1.58.2-noble
+    container_name: playwright-mcp-server
     ports:
       - "8931:8931"
-    command: npx -y playwright-mcp --headless --isolated --browser chromium --no-sandbox --port 8931 --config .claude/playwright-config.json
+    environment:
+      - PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
+      - WEB_SERVER_URL=http://app:3000
+    command: >
+      sh -c "
+        npx playwright install firefox &&
+        npm install -g @playwright/mcp@latest &&
+        npx @playwright/mcp@latest --port 8931 --browser firefox --headless --isolated --no-sandbox
+      "
     depends_on:
       - app
     networks:
       - it_dev-net
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/app
+    working_dir: /app
 
   # 3. Claude Code
   claude-code:
     build:
       context: .
       dockerfile: ./.docker/Dockerfile.claude
-    env_file:
-      - .env
+    container_name: claude-code
     environment:
-      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
-      - MCP_SERVER_URL=http://mcp-playwright:8931/mcp
+      - MCP_SERVER_URL=http://playwright-mcp-server:8931
     volumes:
       - .:/app
       - .:/app/.captures

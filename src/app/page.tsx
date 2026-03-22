@@ -1,8 +1,6 @@
 import Link from 'next/link'
-import { blogPosts } from './data/blog-posts'
 import BlogList from './components/BlogList'
-import { title } from 'process'
-import { specialties, specialties_card, hero, blog } from '../constants/home-constant'
+import { specialties, hero, blog } from '../constants/home-constant'
 import SpecialitiesCard from './components/SpecialitiesCard'
 
 

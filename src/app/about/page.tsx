@@ -27,7 +27,7 @@ export default async function AboutPage() {
           <p className='text-black leading-relaxed mb-4'>
             {profile_data.name} / {profile_data.position}
           </p>
-          <div className="text-gray-600 leading-relaxed mb-4">
+          <div className="prose prose-sm text-gray-600 leading-relaxed mb-4">
             {parse(profile_data.description)}
           </div>
         </div>

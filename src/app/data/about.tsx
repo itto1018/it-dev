@@ -49,7 +49,7 @@ export const getProfileData = async () => {
     const data = await client.get<AboutType>({
         endpoint: 'profile',
         queries: {
-            orders: 'updatedAt',
+            orders: 'publishedAt',
             limit: 1,
         }
     })

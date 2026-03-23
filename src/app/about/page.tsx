@@ -1,4 +1,5 @@
 import { career, skills, getProfileData } from '@/app/data/about'
+import Image from 'next/image'
 import parse from 'html-react-parser'
 
 export default async function AboutPage() {
@@ -17,8 +18,8 @@ export default async function AboutPage() {
       {/* Self intro */}
       <section className="mb-14 flex flex-col md:flex-row gap-10 items-start">
         <div className="shrink-0">
-          <div className="w-28 h-28 rounded-full bg-[#a3e635]/20 flex items-center justify-center text-5xl select-none">
-            👤
+          <div className="w-28 h-28 rounded-full overflow-hidden bg-[#a3e635]/20">
+            <Image src={profile_data.image?.url ?? ''} alt='profile image' width={200} height={200} className="w-full h-full object-cover" />
           </div>
         </div>
         <div>

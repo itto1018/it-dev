@@ -1,10 +1,10 @@
-import { career, skills, getProfileData } from '@/app/data/about'
+import { career, getProfileData, getSkillsData } from '@/app/data/about'
 import Image from 'next/image'
 import parse from 'html-react-parser'
 
 export default async function AboutPage() {
   const profile_data = await getProfileData()
-  
+  const {contents: skills} = await getSkillsData()
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-16">
       {/* Page title */}
@@ -38,39 +38,36 @@ export default async function AboutPage() {
         <h2 className="text-xl font-bold mb-6">スキルセット</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {skills.map((skill) => (
-            <div key={skill.name}>
+            <div key={skill.title}>
               <div className="flex justify-between text-sm mb-1">
-                <span className="font-medium">{skill.name}</span>
-                <span className="text-gray-400">{skill.level}%</span>
+                <span className="font-medium">{skill.title}</span>
+                <span className="text-gray-400">{skill.level[0]}/5</span>
               </div>
               <div className="w-full bg-gray-100 rounded-full h-2">
                 <div
                   className="bg-[#a3e635] h-2 rounded-full transition-all"
-                  style={{ width: `${skill.level}%` }}
+                  style={{ width: `${Number(skill.level[0]) * 20}%` }}
                 />
+              </div>
+              <div>
+
               </div>
             </div>
           ))}
         </div>
 
         <div className="mt-8 flex flex-wrap gap-2">
-          {[
-            'React',
-            'Next.js',
-            'TypeScript',
-            'Tailwind CSS',
-            'Vite',
-            'microCMS',
-            'Supabase',
-            'Vercel',
-            'GitHub Actions',
-            'Figma',
-          ].map((tag) => (
+          {skills.map((skill) => (
             <span
-              key={tag}
-              className="text-xs font-medium bg-[#a3e635]/15 text-[#65a30d] border border-[#a3e635]/30 px-3 py-1 rounded-full"
+              key={skill.title}
+              className={`text-xs font-medium px-3 py-1 rounded-full border ${!skill.categoryColor ? 'bg-[#a3e635]/15 text-[#65a30d] border-[#a3e635]/30' : ''}`}
+              style={skill.categoryColor ? {
+                backgroundColor: skill.categoryColor + '26',
+                color: skill.categoryColor,
+                borderColor: skill.categoryColor + '4D',
+              } : undefined}
             >
-              {tag}
+              {skill.title}
             </span>
           ))}
         </div>

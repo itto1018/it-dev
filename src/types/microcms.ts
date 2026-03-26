@@ -9,9 +9,18 @@ export type MicroCMSBase = MicroCMSDate & {
 }
 
 // about
-export type AboutType = MicroCMSBase & {
+export type ProfileType = MicroCMSBase & {
   name: string
   position: string
   image?: MicroCMSImage
   description: string
+}
+
+export type SkillType = MicroCMSBase & {
+  title: string
+  level: string[]
+  discription: string
+  category?: string[]
+  categoryColor?: string
+  url?: string
 }

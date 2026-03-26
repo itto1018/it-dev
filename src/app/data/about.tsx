@@ -43,15 +43,25 @@ const career = [
 export { profile, skills, career }
 
 import { client } from '@/lib/microcms'
-import { AboutType } from '@/types/microcms'
+import { ProfileType, SkillType } from '@/types/microcms'
 
 export const getProfileData = async () => {
-    const data = await client.get<AboutType>({
-        endpoint: 'profile',
-        queries: {
-            orders: 'publishedAt',
-            limit: 1,
-        }
-    })
-    return data
+  const data = await client.get<ProfileType>({
+    endpoint: 'profile',
+    queries: {
+      orders: 'publishedAt',
+      limit: 1,
+    }
+  })
+  return data
+}
+
+export const getSkillsData = async () => {
+  const data = await client.getList<SkillType>({
+    endpoint: 'skills',
+    queries: {
+      orders: 'publishedAt',
+    }
+  })
+  return data
 }

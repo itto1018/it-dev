@@ -20,7 +20,15 @@ export type SkillType = MicroCMSBase & {
   title: string
   level: string[]
   discription: string
-  category?: string[]
+  category: string
   categoryColor?: string
-  url?: string
+  display_flg: boolean
+}
+
+export type CareerType = MicroCMSBase & {
+  company: string
+  role: string
+  discription: string
+  startDate: string
+  endDate?: string
 }

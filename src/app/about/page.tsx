@@ -1,10 +1,18 @@
-import { career, getProfileData, getSkillsData } from '@/app/data/about'
+import { getCareerData, getProfileData, getSkillsData } from '@/app/data/about'
 import Image from 'next/image'
 import parse from 'html-react-parser'
 
 export default async function AboutPage() {
   const profile_data = await getProfileData()
+  const {contents: display_skills} = await getSkillsData(true)
   const {contents: skills} = await getSkillsData()
+  const {contents: career} = await getCareerData()
+
+  const toYYYYMM = (isoString: string): string => {
+    return isoString.slice(0, 7).replace('-', '');
+  };
+  
+
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 py-16">
       {/* Page title */}
@@ -16,7 +24,7 @@ export default async function AboutPage() {
       </div>
 
       {/* Self intro */}
-      <section className="mb-14 flex flex-col md:flex-row gap-10 items-start">
+      <section id='self_intro' className="mb-14 flex flex-col md:flex-row gap-10 items-start">
         <div className="shrink-0">
           <div className="w-28 h-28 rounded-full overflow-hidden bg-[#a3e635]/20">
             <Image src={profile_data.image?.url ?? ''} alt='profile image' width={200} height={200} className="w-full h-full object-cover" />
@@ -34,28 +42,33 @@ export default async function AboutPage() {
       </section>
 
       {/* Skills */}
-      <section className="mb-14">
+      <section id='skills' className="mb-14">
+        {/* displaySkills */}
         <h2 className="text-xl font-bold mb-6">スキルセット</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          {skills.map((skill) => (
-            <div key={skill.title}>
+          {display_skills.map((item) => (
+            <div key={item.title}>
               <div className="flex justify-between text-sm mb-1">
-                <span className="font-medium">{skill.title}</span>
-                <span className="text-gray-400">{skill.level[0]}/5</span>
+                <div>
+                  <span className="font-medium pr-2">{item.title}</span>
+                  <span className="text-gray-400">{item.category}</span>
+                </div>
+                  <span className="text-gray-400">{item.level[0]}/5</span>
               </div>
               <div className="w-full bg-gray-100 rounded-full h-2">
                 <div
                   className="bg-[#a3e635] h-2 rounded-full transition-all"
-                  style={{ width: `${Number(skill.level[0]) * 20}%` }}
-                />
+                  style={{ width: `${Number(item.level[0]) * 20}%` }}
+                  />
               </div>
-              <div>
-
+              <div className='text-gray-500 text-xs'>
+                {item.discription}
               </div>
             </div>
           ))}
         </div>
 
+        {/* displaySkills */}
         <div className="mt-8 flex flex-wrap gap-2">
           {skills.map((skill) => (
             <span
@@ -74,17 +87,20 @@ export default async function AboutPage() {
       </section>
 
       {/* Career */}
-      <section>
+      <section id='career'>
         <h2 className="text-xl font-bold mb-6">経歴</h2>
-        <div className="relative border-l-2 border-[#a3e635]/40 pl-6 space-y-8">
+        <div className="relative border-l-2 border-[#a3e635]/40 ml-5 pl-3 space-y-8">
           {career.map((item) => (
-            <div key={item.year} className="relative">
-              <span className="absolute -left-[29px] top-1 w-3 h-3 rounded-full bg-[#a3e635] border-2 border-white shadow" />
-              <p className="text-xs font-semibold text-[#84cc16] mb-1">
-                {item.year}
+            <div key={toYYYYMM(item.startDate)} className="relative">
+              <span className="absolute -left-4.75 top-1 w-3 h-3 rounded-full bg-[#a3e635] border-2 border-white shadow" />
+              <p className="text-xs font-semibold text-[#84cc16] pt-[1.5px] mb-1.5">
+                {toYYYYMM(item.startDate)}
               </p>
-              <p className="font-bold mb-1">{item.role}</p>
-              <p className="text-gray-500 text-sm">{item.desc}</p>
+              <div className='mb-3'>
+                <p className="font-bold mb-0.5">{item.company}</p>
+                <p className="text-gray-500 text-sm">{item.role}</p>
+              </div>
+              <p className="text-gray-500 text-sm">{item.discription}</p>
             </div>
           ))}
         </div>

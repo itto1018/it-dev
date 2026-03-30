@@ -20,7 +20,7 @@ export default async function AboutPage() {
         <h1 className="text-3xl md:text-4xl font-extrabold mb-2">
           About <span className="text-[#a3e635]">Me</span>
         </h1>
-        <div className="w-12 h-1 bg-[#a3e635] rounded" />
+        <div className="w-[137.5px] md:w-41 h-1 bg-[#a3e635] rounded" />
       </div>
 
       {/* Self intro */}
@@ -35,7 +35,7 @@ export default async function AboutPage() {
           <p className='text-black leading-relaxed mb-4'>
             {profile_data.name} / {profile_data.position}
           </p>
-          <div className="prose prose-sm text-gray-600 leading-relaxed mb-4">
+          <div className="prose prose-sm md:prose-base text-gray-600 leading-relaxed mb-4">
             {parse(profile_data.description)}
           </div>
         </div>

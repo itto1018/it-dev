@@ -24,7 +24,7 @@ export default async function performPage() {
         </h1>
         <div className="w-12 h-1 bg-[#a3e635] rounded" />
         <p className="text-gray-500 mt-4">
-          これまでに携わったプロジェクトの一部をご紹介します
+          業務やプライベートでの実績やプロジェクトを紹介します
         </p>
       </div>
 

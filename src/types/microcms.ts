@@ -36,7 +36,6 @@ export type CareerType = MicroCMSBase & {
 // perform
 export type PerformType = MicroCMSBase & {
   category: string
-  categoryColor?: string
   date: string
   title: string
   description: string

@@ -36,7 +36,6 @@ export type CareerType = MicroCMSBase & {
 // perform
 export type PerformType = MicroCMSBase & {
   category: string
-  categoryColor?: string
   date: string
   title: string
   description: string
@@ -44,11 +43,3 @@ export type PerformType = MicroCMSBase & {
   pageLink?: string
   github?: string
 }
-
-//     "category": "Data",
-//     "date": "2024-11-18T15:00:00.000Z",
-//     "title": "ライブ参戦ダッシュボード",
-//     "discription": "Tableauで音楽ライブのダッシュボードを作成しました！",
-//     "tech": "Tableau",
-//     "pageLink": "https://public.tableau.com/views/MusicalFootprintsArtistsVenuesIveExperienced/sheet0_1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
-// },

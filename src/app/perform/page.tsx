@@ -1,21 +1,12 @@
-import { getPerformData, perform } from "@/app/data/perform"
-import { get } from "http"
-
-const categoryColors: Record<string, string> = {
-  'Web サイト': 'bg-blue-100 text-blue-700',
-  'Web アプリ': 'bg-purple-100 text-purple-700',
-  LP: 'bg-pink-100 text-pink-700',
-  OSS: 'bg-[#a3e635]/20 text-[#65a30d]',
-  'CLI ツール': 'bg-orange-100 text-orange-700',
-}
+import { getPerformData } from "../data/perform";
 
 export default async function performPage() {
   const {contents: perform_data} = await getPerformData()
-  console.log(perform_data)
 
   const toDate = (isoString: string): string => {
     return isoString.slice(0, 10).replace('-', '/').replace('-', '/');
   };
+
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
       <div className="mb-14">

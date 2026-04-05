@@ -43,3 +43,12 @@ export type PerformType = MicroCMSBase & {
   pageLink?: string
   github?: string
 }
+
+// blog
+export type BlogType = MicroCMSBase & {
+  category: string
+  title: string
+  description: string
+  content: string
+  tech?: string
+}

@@ -2,10 +2,16 @@
 
 import { useState, useMemo } from 'react'
 import { blogPosts, categories } from '../data/blog-posts'
+import { getBlogData } from '@/app/data/blog'
 
-export default function BlogPage() {
+
+export default async function BlogPage() {
   const [search, setSearch] = useState('')
   const [activeCategory, setActiveCategory] = useState<string | null>(null)
+
+  const {contents: blog_data} = await getBlogData()
+  console.log(blog_data)
+  
 
   const filtered = useMemo(() => {
     return blogPosts.filter((post) => {

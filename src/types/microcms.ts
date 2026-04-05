@@ -1,7 +1,7 @@
-import type { MicroCMSDate, MicroCMSImage } from 'microcms-js-sdk'
+import type { MicroCMSContentId, MicroCMSDate, MicroCMSImage } from 'microcms-js-sdk'
 
 // microCMS の共通フィールド
-export type MicroCMSBase = MicroCMSDate & {
+export type MicroCMSBase = MicroCMSContentId & MicroCMSDate & {
   createdAt: string
   updatedAt: string
   publishedAt: string
@@ -42,4 +42,13 @@ export type PerformType = MicroCMSBase & {
   tech?: string
   pageLink?: string
   github?: string
+}
+
+// blog
+export type BlogType = MicroCMSBase & {
+  category: string
+  title: string
+  description: string
+  content: string
+  tech?: string
 }

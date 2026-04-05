@@ -21,7 +21,7 @@ export default function Home() {
           <h1 className="text-3xl md:text-6xl font-extrabold leading-tight mb-6">
             {hero.title}
           </h1>
-          <p className="text-gray-600 text-lg md:text-xl max-w-xl md:max-w-2xl mb-10 leading-relaxed">
+          <p className="text-gray-600 text-base md:text-xl max-w-xl md:max-w-2xl mb-10 leading-relaxed">
             {hero.discription}
           </p>
           <div className="flex flex-col sm:flex-row gap-4">

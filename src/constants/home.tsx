@@ -1,5 +1,4 @@
-import { title } from "process"
-
+// heroでHTMLタグを使用するため、jsx.Element型で定義
 const hero = {
   position: 'Data Engineer',
   title: (

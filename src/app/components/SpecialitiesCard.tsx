@@ -1,4 +1,4 @@
-import { specialties_card } from '@/constants/home-constant'
+import { specialties_card } from '@/constants/home'
 import React from 'react'
 
 const SpecialitiesCard = () => {

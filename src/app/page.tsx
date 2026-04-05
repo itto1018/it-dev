@@ -1,7 +1,8 @@
 import Link from 'next/link'
-import BlogList from './components/BlogList'
-import { specialties, hero, blog } from '../constants/home-constant'
-import SpecialitiesCard from './components/SpecialitiesCard'
+import { specialties, hero, blog } from '@/constants/home'
+import BlogList from '@/app/components/BlogList'
+import HeroButton from '@/app/components/Button'
+import SpecialitiesCard from '@/app/components/SpecialitiesCard'
 
 
 export default function Home() {
@@ -17,25 +18,16 @@ export default function Home() {
           <p className="text-[#84cc16] font-semibold mb-3 tracking-widest text-sm uppercase">
             {hero.position}
           </p>
-          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
+          <h1 className="text-3xl md:text-6xl font-extrabold leading-tight mb-6">
             {hero.title}
           </h1>
-          <p className="text-gray-600 text-lg md:text-xl max-w-xl mb-10 leading-relaxed">
+          <p className="text-gray-600 text-base md:text-xl max-w-xl md:max-w-2xl mb-10 leading-relaxed">
             {hero.discription}
           </p>
-          <div className="flex flex-wrap gap-4">
-            <Link
-              href="/perform"
-              className="inline-flex items-center gap-2 bg-[#a3e635] text-gray-900 font-semibold px-6 py-3 rounded-lg hover:bg-[#84cc16] transition-colors"
-            >
-              実績 を見る →
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 border border-gray-300 text-gray-700 font-semibold px-6 py-3 rounded-lg hover:border-[#a3e635] hover:text-[#84cc16] transition-colors"
-            >
-              お問い合わせ
-            </Link>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <HeroButton href="/about">It について →</HeroButton>
+            <HeroButton href="/perform">It の実績 →</HeroButton>
+            <HeroButton href="/contact" variant="outline">お問い合わせ</HeroButton>
           </div>
         </div>
       </section>

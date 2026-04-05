@@ -18,10 +18,10 @@ export default function Home() {
           <p className="text-[#84cc16] font-semibold mb-3 tracking-widest text-sm uppercase">
             {hero.position}
           </p>
-          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
+          <h1 className="text-3xl md:text-6xl font-extrabold leading-tight mb-6">
             {hero.title}
           </h1>
-          <p className="text-gray-600 text-lg md:text-xl max-w-xl mb-10 leading-relaxed">
+          <p className="text-gray-600 text-lg md:text-xl max-w-xl md:max-w-2xl mb-10 leading-relaxed">
             {hero.discription}
           </p>
           <div className="flex flex-col sm:flex-row gap-4">

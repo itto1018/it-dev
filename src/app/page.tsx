@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { specialties, hero, blog } from '@/constants/home'
 import BlogList from '@/app/components/BlogList'
-import HeroButton from '@/app/components/Button'
+import { HeroButton } from '@/app/components/Button'
 import SpecialitiesCard from '@/app/components/SpecialitiesCard'
 
 

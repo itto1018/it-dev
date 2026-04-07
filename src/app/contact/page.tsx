@@ -1,20 +1,9 @@
 'use client'
 
-import { useState, type FormEvent } from 'react'
-
-type FormState = {
-  name: string
-  email: string
-  subject: string
-  message: string
-}
-
-const contactInfo = [
-  { icon: '✉️', label: 'Email', value: 'hello@it-dev.example.com' },
-  { icon: '🐦', label: 'Twitter / X', value: '@it_dev' },
-  { icon: '💻', label: 'GitHub', value: 'github.com/it-dev' },
-  { icon: '📝', label: 'Zenn', value: 'zenn.dev/it_dev' },
-]
+import { useState } from 'react'
+import { FormState } from '@/types/contact'
+import { contactInfo } from '@/constants/contact'
+import { ContactButton } from '@/app/components/Button'
 
 export default function ContactPage() {
   const [form, setForm] = useState<FormState>({
@@ -31,7 +20,7 @@ export default function ContactPage() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault()
     // TODO: 実際の送信処理（Resend / Formspree など）に置き換える
     setSubmitted(true)
@@ -45,7 +34,7 @@ export default function ContactPage() {
         </h1>
         <div className="w-12 h-1 bg-[#a3e635] rounded" />
         <p className="text-gray-500 mt-4">
-          お仕事のご依頼・ご相談はお気軽にどうぞ
+          フォームもしくは各SNSのDMよりお気軽にご連絡ください
         </p>
       </div>
 
@@ -128,12 +117,9 @@ export default function ContactPage() {
                   className="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-[#a3e635]/50 focus:border-[#a3e635] resize-none"
                 />
               </div>
-              <button
-                type="submit"
-                className="w-full bg-[#a3e635] text-gray-900 font-semibold py-3 rounded-lg hover:bg-[#84cc16] transition-colors"
-              >
+              <ContactButton>
                 送信する →
-              </button>
+              </ContactButton>
             </form>
           )}
         </div>
@@ -146,7 +132,8 @@ export default function ContactPage() {
               key={item.label}
               className="flex items-start gap-3 bg-gray-50 rounded-lg p-4"
             >
-              <span className="text-xl">{item.icon}</span>
+              {/* アイコンは仮なので、最終的にはHydration Warningは外す */}
+              <span className="text-xl" suppressHydrationWarning>{item.icon}</span>
               <div>
                 <p className="text-xs text-gray-400 mb-0.5">{item.label}</p>
                 <p className="text-sm font-medium text-gray-700">{item.value}</p>
@@ -154,8 +141,7 @@ export default function ContactPage() {
             </div>
           ))}
           <div className="bg-[#a3e635]/10 border border-[#a3e635]/30 rounded-lg p-4 text-sm text-gray-600 leading-relaxed">
-            通常 1〜3 営業日以内にご返信いたします。お急ぎの場合は Twitter
-            DM よりご連絡ください。
+            通常 1〜3 営業日以内にご返信いたします。お急ぎの場合は、YOUTRUSTもしくはフォーム（Email）でお問い合わせください。
           </div>
         </div>
       </div>

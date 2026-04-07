@@ -1,12 +1,16 @@
 import Link from 'next/link'
 
-type Props = {
+type HeroButtonProps = {
   href: string
   variant?: 'primary' | 'outline'
   children: React.ReactNode
 }
 
-const HeroButton = ({ href, variant = 'primary', children }: Props) => {
+type ContactButtonProps = {
+  children: React.ReactNode
+}
+
+export const HeroButton = ({ href, variant = 'primary', children }: HeroButtonProps) => {
   const base = 'inline-flex items-center justify-center w-full md:w-40 gap-2 font-semibold px-6 py-3 rounded-lg transition-colors'
   const styles = {
     primary: 'bg-[#a3e635] text-gray-900 hover:bg-[#84cc16]',
@@ -19,4 +23,11 @@ const HeroButton = ({ href, variant = 'primary', children }: Props) => {
   )
 }
 
-export default HeroButton
+export const ContactButton = ({ children }: ContactButtonProps) => {
+  const base = 'w-full bg-[#a3e635] text-gray-900 font-semibold py-3 rounded-lg hover:bg-[#84cc16] transition-colors'
+  return (
+    <button type='submit' className={`${base}`}>
+      {children}
+    </button>
+  )
+}

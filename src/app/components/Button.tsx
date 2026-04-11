@@ -1,12 +1,17 @@
 import Link from 'next/link'
 
-type Props = {
+type HeroButtonProps = {
   href: string
   variant?: 'primary' | 'outline'
   children: React.ReactNode
 }
 
-const HeroButton = ({ href, variant = 'primary', children }: Props) => {
+type ContactButtonProps = {
+  children: React.ReactNode
+  disabled?: boolean
+}
+
+export const HeroButton = ({ href, variant = 'primary', children }: HeroButtonProps) => {
   const base =
     'inline-flex items-center justify-center w-full md:w-40 gap-2 font-semibold px-6 py-3 rounded-lg transition-colors'
   const styles = {
@@ -20,4 +25,12 @@ const HeroButton = ({ href, variant = 'primary', children }: Props) => {
   )
 }
 
-export default HeroButton
+export const ContactButton = ({ children, disabled }: ContactButtonProps) => {
+  const base =
+    'w-full bg-[#a3e635] text-gray-900 font-semibold py-3 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed hover:bg-[#84cc16]'
+  return (
+    <button type="submit" className={base} disabled={disabled}>
+      {children}
+    </button>
+  )
+}

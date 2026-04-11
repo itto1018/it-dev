@@ -9,7 +9,7 @@ const SpecialitiesCard = () => {
           key={s.title}
           className="bg-white rounded-xl p-7 border border-gray-100 shadow-sm hover:shadow-md hover:border-[#a3e635]/50 transition-all"
         >
-          <div className="text-4xl mb-4">{s.icon}</div>
+          <div className="text-4xl mb-4 text-[#a3e635]">{s.icon}</div>
           <h3 className="font-bold text-lg mb-2">{s.title}</h3>
           <p className="text-gray-600 text-sm leading-relaxed">
             {s.description}

@@ -1,12 +1,14 @@
+import { FaDatabase, FaChartLine, FaCode } from 'react-icons/fa'
+
 // heroでHTMLタグを使用するため、jsx.Element型で定義
 const hero = {
-  position: 'Data Engineer',
+  position: 'Data Engineer(Data Architect / Data Analyst)',
   title: (
     <>
       こんにちは、<span className="text-[#a3e635]">it</span> です。
     </>
   ),
-  discription: '普段はデータエンジニアとして働きつつ、Webアプリケーション開発やデータアナリスト領域に興味のある It（イット） です。'
+  discription: '普段はデータアーキテクトとして働きつつ、Webアプリケーション開発やデータアナリスト領域に興味のある It（イット） です。'
 }
 
 const specialties = {
@@ -16,22 +18,22 @@ const specialties = {
 
 const specialties_card = [
   {
-    icon: '🔧',
+    icon: <FaDatabase />,
     title: 'データエンジニアリング',
     description:
-      'dbt/Snowflake を中心としたデータ基盤の運用経験やマネジメント経験があります。SQLを用いたテーブル開発やPythonを用いたデータツールの開発も行っています。',
+      'dbt/Snowflake を中心としたデータ基盤の運用やプロジェクトマネジメントの経験があります。SQLを用いたテーブル開発やPythonを用いたデータツールの開発も行っています。',
   },
   {
-    icon: '📈',
+    icon: <FaChartLine />,
     title: 'データ解析・可視化',
     description:
       'Pythonを用いたデータ解析や、Tableauを用いたダッシュボードの作成経験があります。データからインサイトを引き出し、ビジネスの意思決定を支援します。',
   },
   {
-    icon: '💻',
+    icon: <FaCode />,
     title: 'Webアプリケーション開発',
     description:
-      '個人でReact / Next.js を中心としたフロントエンド開発や、最近はGoを用いたバックエンド開発に挑戦中です。',
+      'React / Next.js を中心としたフロントエンド開発に興味があります。「あったらいいな」と思うアプリをバイブコーディングしています。',
   },
 ]
 

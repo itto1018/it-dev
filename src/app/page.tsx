@@ -26,7 +26,6 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <HeroButton href="/about">It について →</HeroButton>
-            <HeroButton href="/perform">It の実績 →</HeroButton>
             <HeroButton href="/contact" variant="outline">お問い合わせ</HeroButton>
           </div>
         </div>

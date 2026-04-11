@@ -5,7 +5,7 @@ import Link from 'next/link'
 import type { BlogType } from '@/types/microcms'
 
 type Props = {
-  initialPosts: (BlogType)[]
+  initialPosts: BlogType[]
 }
 
 export default function BlogClient({ initialPosts }: Props) {
@@ -14,21 +14,19 @@ export default function BlogClient({ initialPosts }: Props) {
 
   const categories = useMemo(
     () => [...new Set(initialPosts.map((p) => p.category))],
-    [initialPosts],
+    [initialPosts]
   )
-  
+
   const toDate = (isoString: string): string => {
-    return isoString.slice(0, 10).replace('-', '/').replace('-', '/');
-  };
+    return isoString.slice(0, 10).replace('-', '/').replace('-', '/')
+  }
 
   const filtered = useMemo(() => {
     return initialPosts.filter((post) => {
       const matchesSearch =
         post.title.toLowerCase().includes(search.toLowerCase()) ||
         post.description.toLowerCase().includes(search.toLowerCase())
-      const matchesCategory = activeCategory
-        ? post.category === activeCategory
-        : true
+      const matchesCategory = activeCategory ? post.category === activeCategory : true
       return matchesSearch && matchesCategory
     })
   }, [search, activeCategory, initialPosts])
@@ -91,8 +89,12 @@ export default function BlogClient({ initialPosts }: Props) {
                   <span className="w-fit text-xs font-medium bg-[#a3e635]/20 text-[#65a30d] px-2 py-0.5 rounded">
                     {post.category}
                   </span>
-                  <time className="text-xs text-gray-400" dateTime={post.publishedAt}>{toDate(post.publishedAt)}</time>
-                  <time className="hidden sm:block text-xs text-gray-400" dateTime={post.updatedAt}>（最終更新: {toDate(post.updatedAt)}）</time>
+                  <time className="text-xs text-gray-400" dateTime={post.publishedAt}>
+                    {toDate(post.publishedAt)}
+                  </time>
+                  <time className="hidden sm:block text-xs text-gray-400" dateTime={post.updatedAt}>
+                    （最終更新: {toDate(post.updatedAt)}）
+                  </time>
                 </div>
                 <h2 className="font-bold text-base mb-2">{post.title}</h2>
                 <p className="text-gray-500 text-sm leading-relaxed">{post.description}</p>

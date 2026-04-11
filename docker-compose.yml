@@ -8,7 +8,7 @@ services:
       - .:/app
     working_dir: /app
     ports:
-      - "3000:3000"
+      - '3000:3000'
     command: pnpm dev
     networks:
       - it_dev-net
@@ -18,7 +18,7 @@ services:
     image: mcr.microsoft.com/playwright:v1.58.2-noble
     container_name: playwright-mcp-server
     ports:
-      - "8931:8931"
+      - '8931:8931'
     environment:
       - PLAYWRIGHT_BROWSERS_PATH=/ms-playwright
       - WEB_SERVER_URL=http://app:3000

@@ -6,7 +6,7 @@ export const getProfileData = async () => {
     endpoint: 'profile',
     queries: {
       limit: 1,
-    }
+    },
   })
   return data
 }
@@ -16,8 +16,8 @@ export const getSkillsData = async (displayOnly = false) => {
     endpoint: 'skills',
     queries: {
       orders: displayOnly ? 'system:default' : 'category',
-      ...(displayOnly && { filters: 'displayFlg[equals]true' })
-    }
+      ...(displayOnly && { filters: 'displayFlg[equals]true' }),
+    },
   })
   return data
 }
@@ -26,8 +26,8 @@ export const getCareerData = async () => {
   const data = await client.getList<CareerType>({
     endpoint: 'career',
     queries: {
-      orders: '-startDate'
-    }
+      orders: '-startDate',
+    },
   })
   return data
 }

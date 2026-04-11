@@ -14,9 +14,7 @@ export default function ContactPage() {
   })
   const [submitted, setSubmitted] = useState(false)
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
@@ -44,9 +42,7 @@ export default function ContactPage() {
           {submitted ? (
             <div className="bg-[#a3e635]/10 border border-[#a3e635]/30 rounded-xl p-10 text-center">
               <div className="text-5xl mb-4">🎉</div>
-              <h2 className="font-bold text-lg mb-2">
-                メッセージを送信しました！
-              </h2>
+              <h2 className="font-bold text-lg mb-2">メッセージを送信しました！</h2>
               <p className="text-gray-600 text-sm">
                 内容を確認の上、できるだけ早くご返信いたします。
               </p>
@@ -91,9 +87,7 @@ export default function ContactPage() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium mb-1.5">
-                  件名
-                </label>
+                <label className="block text-sm font-medium mb-1.5">件名</label>
                 <input
                   type="text"
                   name="subject"
@@ -128,12 +122,8 @@ export default function ContactPage() {
         <div className="md:col-span-2 space-y-4">
           <h2 className="font-bold text-lg mb-4">連絡先</h2>
           {contactInfo.map((item) => (
-            <div
-              key={item.label}
-              className="flex items-start gap-3 bg-gray-50 rounded-lg p-4"
-            >
-              {/* アイコンは仮なので、最終的にはHydration Warningは外す */}
-              <span className="text-xl" suppressHydrationWarning>{item.icon}</span>
+            <div key={item.label} className="flex items-start gap-3 bg-gray-50 rounded-lg p-4">
+              <span className="text-xl">{item.icon}</span>
               <div>
                 <p className="text-xs text-gray-400 mb-0.5">{item.label}</p>
                 <p className="text-sm font-medium text-gray-700">{item.value}</p>

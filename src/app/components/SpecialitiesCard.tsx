@@ -11,9 +11,7 @@ const SpecialitiesCard = () => {
         >
           <div className="text-4xl mb-4 text-[#a3e635]">{s.icon}</div>
           <h3 className="font-bold text-lg mb-2">{s.title}</h3>
-          <p className="text-gray-600 text-sm leading-relaxed">
-            {s.description}
-          </p>
+          <p className="text-gray-600 text-sm leading-relaxed">{s.description}</p>
         </div>
       ))}
     </div>

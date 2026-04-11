@@ -1,12 +1,13 @@
 import type { MicroCMSContentId, MicroCMSDate, MicroCMSImage } from 'microcms-js-sdk'
 
 // microCMS の共通フィールド
-export type MicroCMSBase = MicroCMSContentId & MicroCMSDate & {
-  createdAt: string
-  updatedAt: string
-  publishedAt: string
-  revisedAt: string
-}
+export type MicroCMSBase = MicroCMSContentId &
+  MicroCMSDate & {
+    createdAt: string
+    updatedAt: string
+    publishedAt: string
+    revisedAt: string
+  }
 
 // about
 export type ProfileType = MicroCMSBase & {

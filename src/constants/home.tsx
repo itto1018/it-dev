@@ -8,12 +8,13 @@ const hero = {
       こんにちは、<span className="text-[#a3e635]">it</span> です。
     </>
   ),
-  discription: '普段はデータアーキテクトとして働きつつ、Webアプリケーション開発やデータアナリスト領域に興味のある It（イット） です。'
+  discription:
+    '普段はデータアーキテクトとして働きつつ、Webアプリケーション開発やデータアナリスト領域に興味のある It（イット） です。',
 }
 
 const specialties = {
   title: '専門領域',
-  discription: '得意とする技術・領域をご紹介します'
+  discription: '得意とする技術・領域をご紹介します',
 }
 
 const specialties_card = [
@@ -39,7 +40,7 @@ const specialties_card = [
 
 const blog = {
   title: '最新のブログ',
-  discription: '技術記事やメモを発信しています'
+  discription: '技術記事やメモを発信しています',
 }
 
 export { hero, specialties, specialties_card, blog }

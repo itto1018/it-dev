@@ -25,9 +25,7 @@ export default function ContactPage() {
   })
   const [submitted, setSubmitted] = useState(false)
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
@@ -44,9 +42,7 @@ export default function ContactPage() {
           Contact <span className="text-[#a3e635]">/</span> お問い合わせ
         </h1>
         <div className="w-12 h-1 bg-[#a3e635] rounded" />
-        <p className="text-gray-500 mt-4">
-          お仕事のご依頼・ご相談はお気軽にどうぞ
-        </p>
+        <p className="text-gray-500 mt-4">お仕事のご依頼・ご相談はお気軽にどうぞ</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-5 gap-10">
@@ -55,9 +51,7 @@ export default function ContactPage() {
           {submitted ? (
             <div className="bg-[#a3e635]/10 border border-[#a3e635]/30 rounded-xl p-10 text-center">
               <div className="text-5xl mb-4">🎉</div>
-              <h2 className="font-bold text-lg mb-2">
-                メッセージを送信しました！
-              </h2>
+              <h2 className="font-bold text-lg mb-2">メッセージを送信しました！</h2>
               <p className="text-gray-600 text-sm">
                 内容を確認の上、できるだけ早くご返信いたします。
               </p>
@@ -102,9 +96,7 @@ export default function ContactPage() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium mb-1.5">
-                  件名
-                </label>
+                <label className="block text-sm font-medium mb-1.5">件名</label>
                 <input
                   type="text"
                   name="subject"
@@ -142,10 +134,7 @@ export default function ContactPage() {
         <div className="md:col-span-2 space-y-4">
           <h2 className="font-bold text-lg mb-4">連絡先</h2>
           {contactInfo.map((item) => (
-            <div
-              key={item.label}
-              className="flex items-start gap-3 bg-gray-50 rounded-lg p-4"
-            >
+            <div key={item.label} className="flex items-start gap-3 bg-gray-50 rounded-lg p-4">
               <span className="text-xl">{item.icon}</span>
               <div>
                 <p className="text-xs text-gray-400 mb-0.5">{item.label}</p>
@@ -154,8 +143,7 @@ export default function ContactPage() {
             </div>
           ))}
           <div className="bg-[#a3e635]/10 border border-[#a3e635]/30 rounded-lg p-4 text-sm text-gray-600 leading-relaxed">
-            通常 1〜3 営業日以内にご返信いたします。お急ぎの場合は Twitter
-            DM よりご連絡ください。
+            通常 1〜3 営業日以内にご返信いたします。お急ぎの場合は Twitter DM よりご連絡ください。
           </div>
         </div>
       </div>

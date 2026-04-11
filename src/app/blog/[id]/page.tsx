@@ -16,8 +16,7 @@ export default async function BlogDetailPage({ params }: Props) {
   const post = await getBlogData(id).catch(() => null)
   if (!post) notFound()
 
-  const toDate = (isoString: string) =>
-    isoString.slice(0, 10).replace('-', '/').replace('-', '/')
+  const toDate = (isoString: string) => isoString.slice(0, 10).replace('-', '/').replace('-', '/')
 
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-16">
@@ -42,9 +41,7 @@ export default async function BlogDetailPage({ params }: Props) {
             （最終更新日: {toDate(post.updatedAt)}）
           </time>
         </div>
-        <h1 className="text-2xl md:text-3xl font-extrabold leading-snug mb-4">
-          {post.title}
-        </h1>
+        <h1 className="text-2xl md:text-3xl font-extrabold leading-snug mb-4">{post.title}</h1>
         <p className="text-gray-500 text-sm leading-relaxed">{post.description}</p>
         {post.tech && (
           <div className="flex flex-wrap gap-1.5 mt-4">

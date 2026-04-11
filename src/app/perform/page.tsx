@@ -59,7 +59,7 @@ export default async function performPage() {
                     rel="noopener noreferrer"
                     className="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-[#84cc16] transition-colors"
                   >
-                    <FiExternalLink /> デモ
+                    <FiExternalLink /> リンク
                   </a>
                 )}
                 {item.github && (

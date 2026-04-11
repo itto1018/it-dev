@@ -1,4 +1,6 @@
 import { getPerformData } from '../data/perform'
+import { FiExternalLink } from 'react-icons/fi'
+import { FaGithub } from 'react-icons/fa'
 
 export default async function performPage() {
   const { contents: perform_data } = await getPerformData()
@@ -34,41 +36,43 @@ export default async function performPage() {
             </div>
             <h2 className="font-bold text-base mb-2">{item.title}</h2>
             <p className="text-gray-500 text-sm leading-relaxed mb-4 flex-1">{item.description}</p>
-            <div className="flex flex-wrap gap-1.5 mb-4">
-              {item.tech
-                ?.split(',')
-                .map((t) => t.trim())
-                .filter(Boolean)
-                .map((t) => (
-                  <span
-                    key={t}
-                    className="text-xs bg-gray-50 border border-gray-200 text-gray-600 px-2 py-0.5 rounded"
+            <div className="mt-auto">
+              <div className="flex flex-wrap gap-1.5 mb-4">
+                {item.tech
+                  ?.split(',')
+                  .map((t) => t.trim())
+                  .filter(Boolean)
+                  .map((t) => (
+                    <span
+                      key={t}
+                      className="text-xs bg-gray-50 border border-gray-200 text-gray-600 px-2 py-0.5 rounded"
+                    >
+                      {t}
+                    </span>
+                  ))}
+              </div>
+              <div className="flex gap-3">
+                {item.pageLink && (
+                  <a
+                    href={item.pageLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-[#84cc16] transition-colors"
                   >
-                    {t}
-                  </span>
-                ))}
-            </div>
-            <div className="flex gap-3">
-              {item.pageLink && (
-                <a
-                  href={item.pageLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs font-medium text-gray-700 hover:text-[#84cc16] transition-colors"
-                >
-                  🔗 デモ
-                </a>
-              )}
-              {item.github && (
-                <a
-                  href={item.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs font-medium text-gray-700 hover:text-[#84cc16] transition-colors"
-                >
-                  💻 GitHub
-                </a>
-              )}
+                    <FiExternalLink /> リンク
+                  </a>
+                )}
+                {item.github && (
+                  <a
+                    href={item.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-[#84cc16] transition-colors"
+                  >
+                    <FaGithub /> GitHub
+                  </a>
+                )}
+              </div>
             </div>
           </article>
         ))}

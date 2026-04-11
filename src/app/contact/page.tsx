@@ -50,8 +50,8 @@ export default function ContactPage() {
             </div>
           ))}
           <div className="bg-[#a3e635]/10 border border-[#a3e635]/30 rounded-lg p-4 text-sm text-gray-600 leading-relaxed">
-            通常 1〜3
-            営業日以内にご返信いたします。お急ぎの場合は、YOUTRUSTもしくはフォーム（Email）でお問い合わせください。
+            通常1〜3営業日以内にご返信いたします。
+            お急ぎの場合は、YOUTRUSTもしくはフォーム（Email）でお問い合わせください。
           </div>
         </div>
 

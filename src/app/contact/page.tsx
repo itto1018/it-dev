@@ -57,7 +57,7 @@ export default function ContactPage() {
 
         {/* Form */}
         <div className="md:col-span-3">
-          <div className="h-280 md:h-270">
+          <div className="h-280 md:h-270 -mx-4 sm:-mx-6 md:mx-0 md:w-full">
             <iframe src={googleFormUrl} width="100%" height="100%">
               読み込んでいます…
             </iframe>

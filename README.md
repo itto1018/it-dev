@@ -12,14 +12,14 @@ Next.js + TypeScript + Tailwind CSS v4 + microCMS で構築されたポートフ
 
 ## ページ構成
 
-| パス | 概要 |
-|------|------|
-| `/` | トップページ（Hero・スペシャリティ・最新ブログ） |
-| `/about` | プロフィール・スキルセット・経歴 |
-| `/perform` | 実績・プロジェクト一覧 |
-| `/blog` | ブログ記事一覧 |
-| `/blog/[id]` | ブログ記事詳細 |
-| `/contact` | お問い合わせ（各SNSリンク・Google Forms） |
+| パス         | 概要                                             |
+| ------------ | ------------------------------------------------ |
+| `/`          | トップページ（Hero・スペシャリティ・最新ブログ） |
+| `/about`     | プロフィール・スキルセット・経歴                 |
+| `/perform`   | 実績・プロジェクト一覧                           |
+| `/blog`      | ブログ記事一覧                                   |
+| `/blog/[id]` | ブログ記事詳細                                   |
+| `/contact`   | お問い合わせ（各SNSリンク・Google Forms）        |
 
 ## セットアップ
 
@@ -42,13 +42,13 @@ MICROCMS_API_KEY=your-api-key
 
 以下のAPIエンドポイントを microCMS 上で作成してください：
 
-| エンドポイント | 種別 | 主なフィールド | 用途 |
-|--------------|------|-------------|-------------|
-| `profile` | オブジェクト | name, position, image, description | profileページのプロフィール情報 |
-| `skills` | リスト | title, level, category, categoryColor, displayFlg, discription | profileページのスキルセット |
-| `career` | リスト | company, role, discription, startDate, endDate | profileページの経歴 |
-| `perform` | リスト | title, category, date, description, tech, pageLink, github | performページの実績情報 |
-| `blog` | リスト | title, category, description, content, tech | blogページのブログ記事 |
+| エンドポイント | 種別         | 主なフィールド                                                 | 用途                            |
+| -------------- | ------------ | -------------------------------------------------------------- | ------------------------------- |
+| `profile`      | オブジェクト | name, position, image, description                             | profileページのプロフィール情報 |
+| `skills`       | リスト       | title, level, category, categoryColor, displayFlg, discription | profileページのスキルセット     |
+| `career`       | リスト       | company, role, discription, startDate, endDate                 | profileページの経歴             |
+| `perform`      | リスト       | title, category, date, description, tech, pageLink, github     | performページの実績情報         |
+| `blog`         | リスト       | title, category, description, content, tech                    | blogページのブログ記事          |
 
 ## コマンド
 

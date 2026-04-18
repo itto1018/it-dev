@@ -15,10 +15,7 @@
       "Write(**/secrets/**)",
       "Bash(wget:*)"
     ],
-    "allow": [
-      "Bash(pnpm test)",
-      "Bash(gh pr view:*)"
-    ]
+    "allow": ["Bash(pnpm test)", "Bash(gh pr view:*)"]
   },
   "mcpServers": {
     "playwright": {

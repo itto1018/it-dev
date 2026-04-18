@@ -9,4 +9,4 @@ shell:
 
 # Claude Codeを起動する
 claude:
-	docker exec -it it_dev-claude-code-1 claude
+	docker exec -it claude-code claude

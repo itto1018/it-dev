@@ -1,73 +1,78 @@
-# React + TypeScript + Vite
+# it_dev
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Next.js + TypeScript + Tailwind CSS v4 + microCMS で構築されたポートフォリオサイト。
 
-Currently, two official plugins are available:
+## 技術スタック
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **フレームワーク**: Next.js 15 (App Router)
+- **言語**: TypeScript
+- **スタイリング**: Tailwind CSS v4
+- **CMS**: microCMS (`microcms-js-sdk`)
+- **パッケージマネージャー**: pnpm
 
-## React Compiler
+## ページ構成
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| パス         | 概要                                             |
+| ------------ | ------------------------------------------------ |
+| `/`          | トップページ（Hero・スペシャリティ・最新ブログ） |
+| `/about`     | プロフィール・スキルセット・経歴                 |
+| `/perform`   | 実績・プロジェクト一覧                           |
+| `/blog`      | ブログ記事一覧                                   |
+| `/blog/[id]` | ブログ記事詳細                                   |
+| `/contact`   | お問い合わせ（各SNSリンク・Google Forms）        |
 
-## Expanding the ESLint configuration
+## セットアップ
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 1. 依存パッケージのインストール
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+pnpm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. 環境変数の設定
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+`.env.local` を作成し、microCMS の認証情報を設定：
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+MICROCMS_SERVICE_DOMAIN=your-service-domain
+MICROCMS_API_KEY=your-api-key
+```
+
+### 3. microCMS のコンテンツ設定
+
+以下のAPIエンドポイントを microCMS 上で作成してください：
+
+| エンドポイント | 種別         | 主なフィールド                                                 | 用途                            |
+| -------------- | ------------ | -------------------------------------------------------------- | ------------------------------- |
+| `profile`      | オブジェクト | name, position, image, description                             | profileページのプロフィール情報 |
+| `skills`       | リスト       | title, level, category, categoryColor, displayFlg, discription | profileページのスキルセット     |
+| `career`       | リスト       | company, role, discription, startDate, endDate                 | profileページの経歴             |
+| `perform`      | リスト       | title, category, date, description, tech, pageLink, github     | performページの実績情報         |
+| `blog`         | リスト       | title, category, description, content, tech                    | blogページのブログ記事          |
+
+## コマンド
+
+```bash
+pnpm dev       # 開発サーバー起動
+pnpm build     # ビルド
+pnpm start     # ビルド済みアプリの起動
+pnpm lint      # ESLint
+pnpm format    # Prettier でコード整形
+```
+
+## ディレクトリ構成
+
+```
+src/
+├── app/
+│   ├── about/          # プロフィール・スキル・経歴ページ
+│   ├── blog/           # ブログ一覧・詳細ページ
+│   ├── contact/        # お問い合わせページ
+│   ├── perform/        # 実績ページ
+│   ├── components/     # 共通コンポーネント（Header, Footer など）
+│   └── data/           # microCMS データ取得関数
+├── constants/          # 定数・静的データ
+├── lib/                # microCMS クライアント設定
+├── types/              # 型定義
+└── styles/             # グローバルスタイル
 ```

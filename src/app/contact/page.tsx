@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import { FaUserTie, FaGithub } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
 import { MdEmail } from 'react-icons/md'
@@ -11,6 +12,11 @@ const iconMap: Record<string, React.ReactNode> = {
   Email: <MdEmail />,
 }
 const contactInfo = contactInfoBase.map((item) => ({ ...item, icon: iconMap[item.label] }))
+
+export const metadata: Metadata = {
+  title: 'Contact | it_dev',
+  description: 'It（イット）への問い合わせページ',
+}
 
 export default function ContactPage() {
   return (

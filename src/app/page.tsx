@@ -1,8 +1,16 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
-import { specialties, hero, blog } from '@/constants/home'
 import BlogList from '@/app/components/BlogList'
 import { HeroButton } from '@/app/components/Button'
 import SpecialitiesCard from '@/app/components/SpecialitiesCard'
+
+import { specialties, hero, blog } from '@/constants/home'
+
+export const metadata: Metadata = {
+  title: 'it_dev | It（イット）のポートフォリオサイト',
+  description:
+    'It（イット）のポートフォリオサイト。ブログや実績、スキルセットなどを紹介しています。',
+}
 
 export default function Home() {
   return (

@@ -1,6 +1,13 @@
-import { getCareerData, getProfileData, getSkillsData } from '@/app/data/about'
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import parse from 'html-react-parser'
+
+import { getCareerData, getProfileData, getSkillsData } from '@/app/data/about'
+
+export const metadata: Metadata = {
+  title: 'About | it_dev',
+  description: 'It（イット）の紹介ページ',
+}
 
 export default async function AboutPage() {
   const profile_data = await getProfileData()

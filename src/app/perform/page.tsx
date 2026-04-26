@@ -1,6 +1,12 @@
+import type { Metadata } from 'next'
 import { getPerformData } from '../data/perform'
 import { FiExternalLink } from 'react-icons/fi'
 import { FaGithub } from 'react-icons/fa'
+
+export const metadata: Metadata = {
+  title: 'Perform | it_dev',
+  description: 'It（イット）の実績紹介ページ',
+}
 
 export default async function performPage() {
   const { contents: perform_data } = await getPerformData()

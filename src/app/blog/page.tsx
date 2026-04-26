@@ -1,5 +1,12 @@
-import { getBlogList } from '@/app/data/blog'
+import type { Metadata } from 'next'
 import BlogSearch from '@/app/components/BlogSearch'
+
+import { getBlogList } from '@/app/data/blog'
+
+export const metadata: Metadata = {
+  title: 'Blog | it_dev',
+  description: 'It（イット）のブログ記事一覧ページ',
+}
 
 export default async function BlogPage() {
   const { contents } = await getBlogList()

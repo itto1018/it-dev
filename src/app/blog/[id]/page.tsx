@@ -1,6 +1,8 @@
-import { getBlogData, getBlogList } from '@/app/data/blog'
+import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+
+import { getBlogData, getBlogList } from '@/app/data/blog'
 
 type Props = {
   params: Promise<{ id: string }>
@@ -9,6 +11,16 @@ type Props = {
 export async function generateStaticParams() {
   const { contents } = await getBlogList()
   return contents.map((post) => ({ id: post.id }))
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { id } = await params
+  const post = await getBlogData(id).catch(() => null)
+  if (!post) return {}
+  return {
+    title: `${post.title} | it_dev`,
+    description: post.description,
+  }
 }
 
 export default async function BlogDetailPage({ params }: Props) {

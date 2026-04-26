@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { getBlogData, getBlogList } from '@/app/data/blog'
 import Link from 'next/link'
+
+import { getBlogData, getBlogList } from '@/app/data/blog'
 
 type Props = {
   params: Promise<{ id: string }>

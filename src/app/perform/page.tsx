@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
-import { getPerformData } from '../data/perform'
 import { FiExternalLink } from 'react-icons/fi'
 import { FaGithub } from 'react-icons/fa'
+
+import { getPerformData } from '@/app/data/perform'
 
 export const metadata: Metadata = {
   title: 'Perform | it_dev',

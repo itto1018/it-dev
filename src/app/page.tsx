@@ -8,7 +8,8 @@ import { specialties, hero, blog } from '@/constants/home'
 
 export const metadata: Metadata = {
   title: 'it_dev | It（イット）のポートフォリオサイト',
-  description: 'It（イット）のポートフォリオサイト。ブログや実績、スキルセットなどを紹介しています。',
+  description:
+    'It（イット）のポートフォリオサイト。ブログや実績、スキルセットなどを紹介しています。',
 }
 
 export default function Home() {

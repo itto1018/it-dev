@@ -18,7 +18,6 @@ export const metadata: Metadata = {
   description: 'It（イット）への問い合わせページ',
 }
 
-
 export default function ContactPage() {
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
